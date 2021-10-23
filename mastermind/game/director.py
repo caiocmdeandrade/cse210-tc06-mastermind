@@ -18,7 +18,6 @@ class Director:
         move (Rabbit): An instance of the class of objects known as Move.
         roster (Roster): An instance of the class of objects known as Roster.
     """
-
     def __init__(self):
         """The class constructor.
         
@@ -37,14 +36,12 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._prepare_game() # Crea los 2 jugadores con sus nombres y en la lista Roster()
+        self._prepare_game()
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
 
-# Se crean 2 objetos jugadores, se introduce los nombres y se 
-# Agrega los 2 jugadores a la lista del objeto Roster()
     def _prepare_game(self):
         """Prepares the game before it begins. In this case, that means getting the player names and adding them to the roster.
         
@@ -54,7 +51,7 @@ class Director:
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             player = Player(name)
-            self._roster.add_player(player) # Agrega los 2 jugadores a la lista del objeto Roster()
+            self._roster.add_player(player)
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -63,18 +60,12 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        # display the game board
         board = self._board.to_string()
         self._console.write(board)
-
-        # get next player's move
+        
         player = self._roster.get_current()
-
-        # Mensaje de turno
         self._console.write(f"{player.get_name()}'s turn:")
-        # Mensaje de elección de adivinanza (un número de 4 dígitos)
-        u_answer = self._console.read_number("What is your guess? ")
-
+        player_answer = self._console.read_number("What is your guess? ")
 
         hint = Hint(guess, hint)
         player.set_guess(hint)

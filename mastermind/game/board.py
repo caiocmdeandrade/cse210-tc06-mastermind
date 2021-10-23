@@ -17,27 +17,39 @@ class Board:
         self._items = []
         self._prepare()
 
+    def prepare(self, player):
+        """Sets up the board with an entry for each player.
+        
+        Args:
+            self (Board): an instance of Board.
+        """
+        name = player.get_name()
+        code = str(random.randint(1000, 10000))
+        guess = "----"
+        hint = "****"
+        self._items[name] = [code, guess, hint]
+
     def _create_hint(self, code, guess):
-      """Generates a hint based on the given code and guess.
+        """Generates a hint based on the given code and guess.
 
-      Args:
-          self (Board): An instance of Board.
-          code (string): The code to compare with.
-          guess (string): The guess that was made.
+        Args:
+            self (Board): An instance of Board.
+            code (string): The code to compare with.
+            guess (string): The guess that was made.
 
-      Returns:
-          string: A hint in the form [xxxx]
-      """ 
-      hint = ""
-      for index, letter in enumerate(guess):
-          if code[index] == letter:
-              hint += "x"
-          elif letter in code:
-              hint += "o"
-          else:
-              hint += "*"
-      return hint
-    
+        Returns:
+            string: A hint in the form [xxxx]
+        """ 
+        hint = ""
+        for index, letter in enumerate(guess):
+            if code[index] == letter:
+                hint += "x"
+            elif letter in code:
+                hint += "o"
+            else:
+                hint += "*"
+        return hint
+
     def is_empty(self):
         """Determines if all the stones have been removed from the board.
         
@@ -46,8 +58,8 @@ class Board:
         Returns:
             boolean: True if the board has no stones on it; false if otherwise.
         """
-        empty = [0] * len(self._piles)
-        return self._piles == empty
+        empty = [0] * len(self._items)
+        return self._items == empty
 
     def to_string(self):
         """Converts the board data to its string representation.
@@ -56,20 +68,9 @@ class Board:
         Returns:
             string: A representation of the current board.
         """ 
-        text =  "\n--------------------"
-        for pile, stones in enumerate(self._piles):
-            text += (f"\n{pile}: " + "O " * stones)
+        text =  "--------------------"
+        print(text)
+        for i, values in enumerate(items):
+            text += (f"\nPlayer {i}: {guess}, {hint}")
         text += "\n--------------------"
-        return text
-
-    def prepare(self, player):
-            """Sets up the board with an entry for each player.
-            
-            Args:
-                self (Board): an instance of Board.
-            """
-            name = player.get_name()
-            code = str(random.randint(1000, 10000))
-            guess = "----"
-            hint = "****"
-            self._items[name] = [code, guess, hint]
+        print(text)

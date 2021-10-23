@@ -8,7 +8,6 @@ class Console:
     Attributes:
         prompt (string): The prompt to display on each line.
     """
-     
     def read(self, prompt):
         """Gets text input from the user through the screen.
 

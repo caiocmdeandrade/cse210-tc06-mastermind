@@ -14,7 +14,7 @@ class Console:
         Args: 
             self (Screen): An instance of Screen.
             prompt (string): The prompt to display to the user.
-
+        
         Returns:
             string: The user's input as text.
         """
@@ -22,11 +22,11 @@ class Console:
 
     def read_number(self, prompt):
         """Gets numerical input from the user through the screen.
-
+        
         Args: 
             self (Screen): An instance of Screen.
             prompt (string): The prompt to display to the user.
-
+        
         Returns:
             integer: The user's input as an integer.
         """
@@ -34,7 +34,7 @@ class Console:
         
     def write(self, text):
         """Displays the given text on the screen. 
-
+        
         Args: 
             self (Screen): An instance of Screen.
             text (string): The text to display.

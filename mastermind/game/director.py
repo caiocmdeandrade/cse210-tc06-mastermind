@@ -22,6 +22,7 @@ class Director:
 
     def __init__(self):
         """The class constructor.
+
         Args:
             self (Director): an instance of Director.
         """
@@ -33,6 +34,7 @@ class Director:
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
+
         Args:
             self (Director): an instance of Director.
         """
@@ -44,6 +46,7 @@ class Director:
 
     def _prepare_game(self):
         """Prepares the game before it begins. In this case, that means getting the player names and adding them to the roster.
+
         Args:
             self (Director): An instance of Director.
         """
@@ -55,6 +58,7 @@ class Director:
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
         that means getting the move from the current player.
+
         Args:
             self (Director): An instance of Director.
         """
@@ -71,6 +75,7 @@ class Director:
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
         this case, that means updating the board with the current comparison
+        
         Args:
             self (Director): An instance of Director.
         """
@@ -81,6 +86,7 @@ class Director:
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means checking if there is a code that has been found and declaring the winner.
+        
         Args:
             self (Director): An instance of Director.
         """
